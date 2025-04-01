@@ -1,0 +1,15 @@
+<mat-card class="manhwa-card">
+  <img class="img-fluid" mat-card-image [src]="manhwa.imagenUrl" alt="{{ manhwa.titulo }}" />
+  <mat-card-content>
+    <h3 class="manhwa-title">{{ manhwa.titulo }}</h3>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-icon-button color="primary">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h3 class="manhwa-chapter">{{ manhwa.capitulo }}</h3>
+    <button mat-icon-button color="accent">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,87 @@
+/* Estilo general de la tarjeta */
+.manhwa-card {
+    width: 90vw; /* Ocupa el 90% del ancho de la pantalla */
+    max-width: 300px; /* Limita el ancho máximo en pantallas grandes */
+    height: 30vh; /* Altura relativa al viewport */
+    max-height: 350px; /* Limita la altura máxima */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1e1e1e; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 16px auto; /* Centra la tarjeta horizontalmente */
+  }
+  
+  /* Imagen del manhwa */
+  mat-card-image {
+    width: 100%; /* La imagen ocupará todo el ancho de la tarjeta */
+    height: 50%; /* La imagen ocupará el 50% de la altura de la tarjeta */
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    object-position: top; /* Centra la imagen desde la parte superior */
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+  }
+  
+  /* Título del manhwa */
+  .manhwa-title {
+    font-size: 20px; /* Tamaño relativo al ancho del viewport */
+    font-weight: bold;
+    margin: 8px 0;
+    text-align: center;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el texto que exceda el ancho */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos al texto largo */
+  }
+  
+  /* Capítulo del manhwa */
+  .manhwa-chapter {
+    font-size: 23px; /* Tamaño relativo al ancho del viewport */
+    text-align: center;
+    margin: 0;
+  }
+  
+  /* Botones de acción */
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 2vw; /* Espaciado relativo al ancho del viewport */
+  }
+  
+  /* Efecto hover */
+  .manhwa-card:hover {
+    transform: translateY(-1vh); /* Eleva la tarjeta ligeramente */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .img-fluid{
+    object-fit: cover;
+    aspect-ratio: 2/1; /* Mantiene la proporción de la imagen */
+  }
+  
+  
+  /* Responsividad para dispositivos móviles */
+  @media (max-width: 768px) {
+    .manhwa-card {
+      width: 95vw; /* Ocupa el 95% del ancho de la pantalla */
+      height: auto; /* Ajusta la altura automáticamente */
+    }
+  
+    mat-card-image {
+      height: 40vh; /* Ajusta la altura de la imagen en pantallas pequeñas */
+    }
+  
+    .manhwa-title {
+      font-size: 4vw; /* Ajusta el tamaño del texto en pantallas pequeñas */
+    }
+  
+    .manhwa-chapter {
+      font-size: 3vw; /* Ajusta el tamaño del texto en pantallas pequeñas */
+    }
+  
+    mat-card-actions {
+      padding: 1vw; /* Reduce el espacio entre los botones */
+    }
+  }

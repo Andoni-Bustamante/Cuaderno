@@ -1,0 +1,66 @@
+/* Estilo general del toolbar */
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del menú */
+.menu-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+}
+
+/* Espaciador */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Botones del menú */
+button[mat-button] {
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  border-radius: 0; /* Quita los bordes redondeados */
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Botón activo */
+button[mat-button].active {
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo para el botón activo */
+  border-bottom: 2px solid rgb(52, 52, 52); /* Subrayado para el botón activo */
+}
+
+/* Ícono de Login */
+button[mat-icon-button] {
+  color: white;
+  margin-left: 8px;
+}
+
+/* Botón activo para el ícono */
+button[mat-icon-button].active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%; /* Mantiene el ícono redondeado */
+}
+
+/* Hover en botones */
+button[mat-button]:hover,
+button[mat-icon-button]:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsividad: menú en dispositivos móviles */
+@media (max-width: 768px) {
+  mat-toolbar {
+    flex-wrap: wrap; /* Permite que los botones se ajusten en varias líneas */
+    padding: 8px;
+  }
+
+  button[mat-button] {
+    font-size: 14px; /* Tamaño de texto más pequeño */
+    margin: 4px 0; /* Espaciado entre botones */
+  }
+}
