@@ -36,20 +36,20 @@ button[mat-button].active {
 
 /* Ícono de Login */
 button[mat-icon-button] {
-  color: white;
+  color: rgb(3, 3, 3);
   margin-left: 8px;
 }
 
 /* Botón activo para el ícono */
 button[mat-icon-button].active {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(75, 74, 74, 0.2);
   border-radius: 50%; /* Mantiene el ícono redondeado */
 }
 
 /* Hover en botones */
 button[mat-button]:hover,
 button[mat-icon-button]:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(150, 150, 150, 0.1);
 }
 
 /* Responsividad: menú en dispositivos móviles */
