@@ -1,1 +1,39 @@
-<p>new-manhwa works!</p>
+<mat-card class="form-card">
+  <mat-card-title>Agregar Nuevo Manhwa</mat-card-title>
+  <mat-card-content>
+    <form class="manhwa-form">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Título</mat-label>
+        <input matInput placeholder="Ingrese el título del manhwa" [(ngModel)]="manhwa.titulo" name="titulo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>URL de la Imagen</mat-label>
+        <input matInput placeholder="Ingrese la URL de la imagen" [(ngModel)]="manhwa.imagenUrl" name="imagenUrl" (input)="actualizarPrevisualizacion()" />
+      </mat-form-field>
+
+      <!-- Previsualización de la imagen -->
+      <div class="image-preview">
+        <img [src]="manhwa.imagenUrl" alt="Previsualización de la imagen" />
+      </div>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Capítulo</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingrese el número de capítulo"
+          [(ngModel)]="manhwa.capitulo"
+          name="capitulo"
+          min="1"
+          (keypress)="validarNumero($event)"
+        />
+      </mat-form-field>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" (click)="guardarManhwa()">Guardar</button>
+        <button mat-raised-button color="warn" type="reset">Cancelar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

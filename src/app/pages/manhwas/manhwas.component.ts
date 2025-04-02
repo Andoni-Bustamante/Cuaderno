@@ -19,7 +19,7 @@ manhwas: Manhwa[] = [
     {
       titulo: 'Tower of God',
       capitulo: 550,
-      imagenUrl: 'https://play-lh.googleusercontent.com/uPhV1ypZr0gY1C5r2q2bFI7P6NkJwpdlj9FoMbbo9PjYSd5g-5CeY3fnYyAlBT4hZw=w526-h296-rw',
+      imagenUrl: 'https://thepopbreak.com/wp-content/uploads/2020/06/tower-of-god.jpg',
     },
     {
       titulo: 'The Beginning After the End',
