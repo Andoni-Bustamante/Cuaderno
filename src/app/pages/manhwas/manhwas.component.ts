@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ManhwaCardComponent } from "../../components/manhwa-card/manhwa-card.component";
 import { Manhwa } from '../../interfaces/manhwa';
 import { CommonModule } from '@angular/common'; 
+import { SupabaseService } from '../../services/supabase.service';
 
 @Component({
   selector: 'app-manhwas',
@@ -10,21 +11,17 @@ import { CommonModule } from '@angular/common';
   styleUrl: './manhwas.component.css'
 })
 export class ManhwasComponent {
-manhwas: Manhwa[] = [
-    {
-      titulo: 'Solo Leveling',
-      capitulo: 179,
-      imagenUrl: 'https://i.blogs.es/2b941f/solo-leveling/500_333.jpeg',
-    },
-    {
-      titulo: 'Tower of God',
-      capitulo: 550,
-      imagenUrl: 'https://thepopbreak.com/wp-content/uploads/2020/06/tower-of-god.jpg',
-    },
-    {
-      titulo: 'The Beginning After the End',
-      capitulo: 150,
-      imagenUrl: 'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/10/the-beginning-after-the-end-arthur-leywin-and-sylphy.jpg',
+  manhwas: Manhwa[] = []; // Inicializamos el array vacío
+
+  constructor(private supabaseService: SupabaseService) {}
+
+  async ngOnInit() {
+    try {
+      // Llamamos al servicio para obtener los registros de la base de datos
+      this.manhwas = await this.supabaseService.getManhwas();
+      console.log('Manhwas cargados:', this.manhwas);
+    } catch (error) {
+      console.error('Error al cargar los manhwas:', error);
     }
-  ];
+  }
 }

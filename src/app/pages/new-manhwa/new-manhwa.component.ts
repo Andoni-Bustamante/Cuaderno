@@ -1,26 +1,43 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common'; 
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { SupabaseService } from '../../services/supabase.service';
+import { Manhwa } from '../../interfaces/manhwa';
 
 @Component({
   selector: 'app-new-manhwa',
   standalone: true,
-  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule],
+  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule, MatSelectModule, CommonModule],
   templateUrl: './new-manhwa.component.html',
   styleUrls: ['./new-manhwa.component.css']
 })
 export class NewManhwaComponent {
-  manhwa = {
+  manhwa: Manhwa = {
     titulo: '',
     imagenUrl: '',
-    capitulo: 0
+    capitulo: 0,
+    dia: ''
   };
 
-  guardarManhwa() {
-    console.log(this.manhwa); // Imprime el objeto en la consola
+  diasSemana: string[] = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+  constructor(private supabaseService: SupabaseService) {}
+
+  async guardarManhwa() {
+    try {
+      console.log('Guardando manhwa:', this.manhwa);
+      const data = await this.supabaseService.addManhwa(this.manhwa);
+      console.log('Manhwa guardado con éxito:', data);
+      alert('Manhwa guardado con éxito');
+    } catch (error) {
+      console.error('Error al guardar el manhwa:', error);
+      alert('Error al guardar el manhwa');
+    }
   }
 
   actualizarPrevisualizacion() {
