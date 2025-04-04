@@ -24,10 +24,46 @@ export class SupabaseService {
 
   // Método para obtener todos los manhwas
   async getManhwas() {
-    const { data, error } = await this.supabase.from('Manhwa').select('*');
+    const { data, error } = await this.supabase.from('Manhwa').select('*').order('titulo', { ascending: true });;
     if (error) {
       throw error;
     }
     return data;
+  }
+
+  async updateCapitulo(id: number, nuevoCapitulo: number): Promise<void> {
+    const { error } = await this.supabase
+      .from('Manhwa')
+      .update({ capitulo: nuevoCapitulo })
+      .eq('id', id);
+
+    if (error) {
+      throw error;
+    }
+  }
+
+  async getManhwaById(id: number): Promise<Manhwa | null> {
+    const { data, error } = await this.supabase
+      .from('Manhwa')
+      .select('*')
+      .eq('id', id)
+      .single();
+  
+    if (error) {
+      throw error;
+    }
+    return data;
+  }
+  
+  // Actualizar un manhwa
+  async updateManhwa(manhwa: Manhwa): Promise<void> {
+    const { error } = await this.supabase
+      .from('Manhwa')
+      .update(manhwa)
+      .eq('id', manhwa.id);
+  
+    if (error) {
+      throw error;
+    }
   }
 }

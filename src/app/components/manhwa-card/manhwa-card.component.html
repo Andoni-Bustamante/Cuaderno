@@ -1,14 +1,14 @@
 <mat-card class="manhwa-card">
-  <img class="img-fluid" mat-card-image [src]="manhwa.imagenUrl" alt="{{ manhwa.titulo }}" />
+  <img class="img-fluid" mat-card-image [src]="manhwa.imagenUrl" alt="{{ manhwa.titulo }}" [routerLink]="['/editManhwa', manhwa.id]"/>
   <mat-card-content>
-    <h3 class="manhwa-title">{{ manhwa.titulo }}</h3>
+    <h3 class="manhwa-title" [routerLink]="['/editManhwa', manhwa.id]">{{ manhwa.titulo }}</h3>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button mat-icon-button color="primary">
+    <button mat-icon-button color="primary" (click)="decrementarCapitulo()">
       <mat-icon>arrow_back</mat-icon>
     </button>
     <h3 class="manhwa-chapter">{{ manhwa.capitulo }}</h3>
-    <button mat-icon-button color="accent">
+    <button mat-icon-button color="accent" (click)="incrementarCapitulo()">
       <mat-icon>arrow_forward</mat-icon>
     </button>
   </mat-card-actions>

@@ -1,1 +1,38 @@
-<p>edit-manhwa works!</p>
+<mat-card class="form-card">
+  <mat-card-title>Editar Manhwa</mat-card-title>
+  <mat-card-content>
+    <form class="manhwa-form">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Título</mat-label>
+        <input matInput placeholder="Ingrese el título del manhwa" [(ngModel)]="manhwa.titulo" name="titulo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>URL de la Imagen</mat-label>
+        <input matInput placeholder="Ingrese la URL de la imagen" [(ngModel)]="manhwa.imagenUrl" name="imagenUrl" />
+      </mat-form-field>
+
+      <div class="image-preview">
+        <img [src]="manhwa.imagenUrl" alt="Previsualización de la imagen" />
+      </div>
+      
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Capítulo</mat-label>
+        <input matInput type="number" placeholder="Ingrese el número de capítulo" [(ngModel)]="manhwa.capitulo" name="capitulo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Día de Publicación</mat-label>
+        <mat-select [(ngModel)]="manhwa.dia" name="dia">
+          <mat-option *ngFor="let dia of diasSemana" [value]="dia">{{ dia }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" (click)="guardarCambios()">Guardar Cambios</button>
+        <button mat-raised-button color="warn" routerLink="/manhwas">Cancelar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+

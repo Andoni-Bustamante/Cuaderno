@@ -16,6 +16,6 @@ export const routes: Routes = [
   { path: 'manhwa', component: ManhwasComponent },
   { path: 'newManhwa', component: NewManhwaComponent },
   { path: 'newAnime', component: NewAnimeComponent },
-  { path: 'editManhwa', component: EditManhwaComponent },
-  { path: 'editAnime', component: EditAnimeComponent },
+  { path: 'editManhwa/:id', component: EditManhwaComponent },
+  { path: 'editAnime/:id', component: EditAnimeComponent },
 ];
