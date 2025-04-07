@@ -66,4 +66,16 @@ export class SupabaseService {
       throw error;
     }
   }
+
+  // Método para eliminar un manhwa por ID
+async deleteManhwa(id: number): Promise<void> {
+  const { error } = await this.supabase
+    .from('Manhwa')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    throw error;
+  }
+}
 }

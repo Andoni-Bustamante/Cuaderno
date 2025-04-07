@@ -50,10 +50,28 @@ export class EditManhwaComponent {
     try {
       await this.supabaseService.updateManhwa(this.manhwa);
       alert('Cambios guardados con éxito');
-      this.router.navigate(['/manhwas']);
+      this.router.navigate(['/manhwa']);
     } catch (error) {
       console.error('Error al guardar los cambios:', error);
       alert('Error al guardar los cambios');
     }
+  }
+
+  async borrarManhwa() {
+    const confirmacion = confirm('¿Estás seguro de que deseas eliminar este manhwa?');
+    if (confirmacion) {
+      try {
+        await this.supabaseService.deleteManhwa(this.manhwa.id!);
+        alert('Manhwa eliminado con éxito');
+        this.router.navigate(['/manhwa']); 
+      } catch (error) {
+        console.error('Error al eliminar el manhwa:', error);
+        alert('Error al eliminar el manhwa');
+      }
+    }
+  }
+
+  cancelar() {
+    this.router.navigate(['/manhwa']);
   }
 }
