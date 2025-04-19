@@ -4,7 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common'; 
 import { Manhwa } from '../../interfaces/manhwa';
 import { MatIcon } from '@angular/material/icon';
-import { SupabaseService } from '../../services/supabase.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -17,19 +16,18 @@ import { RouterModule } from '@angular/router';
 export class ManhwaCardComponent {
   @Input() manhwa!: Manhwa; // Recibe un objeto Manhwa como entrada
 
-  constructor(private supabaseService: SupabaseService) {}
 
-  async incrementarCapitulo() {
+  async incrementarCapitulo() {/*
     try {
       this.manhwa.capitulo++;
       await this.supabaseService.updateCapitulo(this.manhwa.id!, this.manhwa.capitulo);
       console.log(`Capítulo incrementado: ${this.manhwa.capitulo}`);
     } catch (error) {
       console.error('Error al incrementar el capítulo:', error);
-    }
+    }*/
   }
 
-  async decrementarCapitulo() {
+  async decrementarCapitulo() {/*
     try {
       if (this.manhwa.capitulo > 0) {
         this.manhwa.capitulo--;
@@ -38,7 +36,7 @@ export class ManhwaCardComponent {
       }
     } catch (error) {
       console.error('Error al decrementar el capítulo:', error);
-    }
+    }*/
   }
 
   

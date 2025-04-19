@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ManhwaCardComponent } from "../../components/manhwa-card/manhwa-card.component";
 import { Manhwa } from '../../interfaces/manhwa';
 import { CommonModule } from '@angular/common'; 
-import { SupabaseService } from '../../services/supabase.service';
 
 @Component({
   selector: 'app-manhwas',
@@ -13,12 +12,11 @@ import { SupabaseService } from '../../services/supabase.service';
 export class ManhwasComponent {
   manhwas: Manhwa[] = []; // Inicializamos el array vacío
 
-  constructor(private supabaseService: SupabaseService) {}
 
   async ngOnInit() {
     try {
       // Llamamos al servicio para obtener los registros de la base de datos
-      this.manhwas = await this.supabaseService.getManhwas();
+      //this.manhwas = await this.supabaseService.getManhwas();
       console.log('Manhwas cargados:', this.manhwas);
     } catch (error) {
       console.error('Error al cargar los manhwas:', error);

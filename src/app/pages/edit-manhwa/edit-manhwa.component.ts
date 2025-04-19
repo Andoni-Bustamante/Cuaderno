@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Manhwa } from '../../interfaces/manhwa';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SupabaseService } from '../../services/supabase.service';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
@@ -28,12 +27,11 @@ export class EditManhwaComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private supabaseService: SupabaseService,
     private router: Router
   ) {}
 
   async ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
+    /*const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       try {
         const data = await this.supabaseService.getManhwaById(Number(id));
@@ -43,22 +41,22 @@ export class EditManhwaComponent {
       } catch (error) {
         console.error('Error al cargar el manhwa:', error);
       }
-    }
+    }*/
   }
 
   async guardarCambios() {
-    try {
+    /*try {
       await this.supabaseService.updateManhwa(this.manhwa);
       alert('Cambios guardados con éxito');
       this.router.navigate(['/manhwa']);
     } catch (error) {
       console.error('Error al guardar los cambios:', error);
       alert('Error al guardar los cambios');
-    }
+    }*/
   }
 
   async borrarManhwa() {
-    const confirmacion = confirm('¿Estás seguro de que deseas eliminar este manhwa?');
+    /*const confirmacion = confirm('¿Estás seguro de que deseas eliminar este manhwa?');
     if (confirmacion) {
       try {
         await this.supabaseService.deleteManhwa(this.manhwa.id!);
@@ -68,7 +66,7 @@ export class EditManhwaComponent {
         console.error('Error al eliminar el manhwa:', error);
         alert('Error al eliminar el manhwa');
       }
-    }
+    }*/
   }
 
   cancelar() {

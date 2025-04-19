@@ -6,7 +6,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
-import { SupabaseService } from '../../services/supabase.service';
 import { Manhwa } from '../../interfaces/manhwa';
 import { Router } from '@angular/router';
 
@@ -27,9 +26,9 @@ export class NewManhwaComponent {
 
   diasSemana: string[] = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
-  constructor(private supabaseService: SupabaseService, private router: Router) {}
+  constructor(private router: Router) {}
 
-  async guardarManhwa() {
+  async guardarManhwa() {/*
     try {
       const data = await this.supabaseService.addManhwa(this.manhwa);
       alert('Manhwa guardado con éxito');
@@ -37,7 +36,7 @@ export class NewManhwaComponent {
     } catch (error) {
       console.error('Error al guardar el manhwa:', error);
       alert('Error al guardar el manhwa');
-    }
+    }*/
   }
 
   actualizarPrevisualizacion() {
